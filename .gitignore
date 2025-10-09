@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# Python
+/volatility-service/venv/
+/volatility-service/__pycache__/
