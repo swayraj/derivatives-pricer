@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Derivative Pricer</title>
+</head>
+<body>
+
+    <h1>Black and Scholes Option Pricer</h1>
+    <p>Enter the details below to Calculate the option's fair value.</p>
+
+    <form th:action="@{/calculate}" method="post">
+
+        <div>
+            <label for="stockPrice">Current Stock Price (SPOT):</label>
+            <input type="number" id="stockPrice" name="stockPrice" step="0.01" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="strikePrice">Strike Price (STRIKE):</label>
+            <input type="number" id="strikePrice" name="strikePrice" step="0.01" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="expiryDate">Expiry Date (EXPIRY):</label>
+            <input type="date" id="expiryDate" name="expiryDate" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="optionType">Option Type:</label>
+            <select id="optionType" name="optionType">
+                <option value="CALL">CALL</option>
+                <option value="PUT">PUT</option>
+            </select>
+        </div>
+        <br>
+
+        <button type="submit">Calculate Price</button>
+
+    </form>
+
+</body>
+</html>
