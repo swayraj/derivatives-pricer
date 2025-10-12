@@ -4,6 +4,7 @@ import com.optionspricer.derivatives_pricer.domain.MarketData;
 import com.optionspricer.derivatives_pricer.domain.Option;
 import com.optionspricer.derivatives_pricer.service.BlackScholesService;
 import com.optionspricer.derivatives_pricer.service.VolatilityService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class OptionController {
     public String calculatePrice(
             @RequestParam double stockPrice,
             @RequestParam double strikePrice,
-            @RequestParam("expiry_date") LocalDate expiryDate,
+            @RequestParam("expiryDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate expiryDate,
             @RequestParam String optionType,
             Model model)
     {
