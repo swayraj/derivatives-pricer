@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculation Result</title>
+</head>
+<body>
+
+<h1>Calculation Result 📈</h1>
+
+<h2>
+    Calculated Option Price:
+    <span th:text="${#numbers.formatDecimal(optionPrice, 1, 2)}">0.00</span>
+</h2>
+
+<hr>
+
+<h3>Calculation Inputs:</h3>
+<ul>
+    <li>
+        AI-Predicted Volatility:
+        <strong th:text="${#numbers.formatDecimal(predictedVolatility, 1, 2)} + '%'">25.00%</strong>
+    </li>
+    <li>
+        Option Type:
+        <strong th:text="${optionInput.optionType}">CALL</strong>
+    </li>
+    <li>
+        Stock Price:
+        <strong th:text="${marketInput.stockPrice}">150.00</strong>
+    </li>
+    <li>
+        Strike Price:
+        <strong th:text="${optionInput.strikePrice}">155.00</strong>
+    </li>
+    <li>
+        Expiry Date:
+        <strong th:text="${optionInput.expiryDate}">2025-12-31</strong>
+    </li>
+</ul>
+
+<br>
+<a href="/">Perform another calculation</a>
+
+</body>
+</html>
