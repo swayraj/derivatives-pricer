@@ -1,0 +1,32 @@
+#Version of the Docker Compose file format.
+version: '3.8'
+
+#Define our services (containers).
+
+services:
+  # --- The Java Spring Boot Application Service ---
+  java-app:
+    #Build the image from the Dockerfile in the current directory ('.').
+    build: .
+    container_name: java-pricer-app
+    # Maps port 8080 on the host machine to port 8080 in the container.
+    ports:
+      - "8080:8080"
+    environment:
+      #We override the URL from application.properties to point to our Python service.
+      #Here 'python-app' is the hostname that Docker Compose automatically creates for our Python service.
+      - volatility.service.url=http://python-app:5000/predict
+    # Ensure Python service is started before the Java service.
+    depends_on:
+      - python-app
+
+  # --- The Python Flask AI Service ---
+  python-app:
+    # Tells Compose where to find the Dockerfile for this service.
+    build:
+      context: ./volatility-service
+    # Gives the container a specific name.
+    container_name: python-volatility-api
+    # expose the port for testing
+    ports:
+      - "5000:5000"
