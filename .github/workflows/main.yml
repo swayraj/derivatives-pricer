@@ -1,0 +1,29 @@
+# Workflow Name to be displayed in "Actions" tab on github repo
+name: CI/CD Pipeline for Derivatives Pricer
+
+#Section to Trigger workflow.
+on:
+  #Run every time someone pushes code...
+  push:
+    # ...but only to the 'main' branch.
+    branches: [ main ]
+
+# This section defines the jobs to be run. A workflow can have one or more jobs.
+jobs:
+  # we name the job build-and-push
+  build-and-push:
+    # Specifies the type of machine to run our job on.
+    runs-on: ubuntu-latest
+
+    # This section lists the individual steps that make up the job.
+    # The steps are executed in order.
+    steps:
+      # Step 1: Check out the code from our repository.
+      # This is a pre-built action provided by GitHub.
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      # We will add more steps here in the next session to:
+      # 1. Log in to AWS
+      # 2. Build our Docker images
+      # 3. Push them to ECR
