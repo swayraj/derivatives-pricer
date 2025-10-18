@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculation Result</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
+
+<div class="container">
 <body>
 
 <h1>Calculation Result 📈</h1>
@@ -15,6 +18,7 @@
 
 <hr>
 
+<div class="result-card">
 <h3>Calculation Inputs:</h3>
 <ul>
     <li>
@@ -38,9 +42,11 @@
         <strong th:text="${optionInput.expiryDate}">2025-12-31</strong>
     </li>
 </ul>
+</div>
 
 <br>
 <a href="/">Perform another calculation</a>
 
 </body>
+</div>
 </html>
