@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  java-app:
+    # PULL the image from ECR. Replace with your URI!
+    image: 869603330567.dkr.ecr.ap-southeast-2.amazonaws.com/java-app:latest
+    container_name: java-pricer-app
+    ports:
+      - "8080:8080"
+    environment:
+      # This networking still works, as Compose will name the Python service 'python-app'
+      - volatility.service.url=http://python-app:5000/predict
+    depends_on:
+      - python-app
+
+  python-app:
+    # PULL the image from ECR. Replace with your URI!
+    image: 869603330567.dkr.ecr.ap-southeast-2.amazonaws.com/python-app:latest
+    container_name: python-volatility-api
+    # No port mapping needed, as only the java-app needs to talk to it
