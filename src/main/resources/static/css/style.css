@@ -142,3 +142,17 @@ a {
 a:hover {
     color: #0056b3;
 }
+
+
+/* --- Responsive Rules for Mobile --- */
+@media (max-width: 500px) {
+    .container {
+        /* On small screens, reduce the padding and margin so it fits better */
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Make the main title a bit smaller */
+    }
+}
