@@ -6,7 +6,7 @@ A full-stack, cloud-native application to calculate the fair price of financial 
 
 ## Demo
 
-![Application Demo](derivative_demo.gif)
+![Application Demo](demo_resized.gif)
 
 ## Features
 
