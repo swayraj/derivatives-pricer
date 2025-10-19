@@ -4,6 +4,9 @@
 
 A full-stack, cloud-native application to calculate the fair price of financial options using the Black-Scholes model, featuring an AI-driven volatility prediction microservice. Built for demonstrating modern software engineering practices, including microservices, CI/CD, and cloud deployment.
 
+## Demo
+
+![Application Demo](derivative_demo.gif)
 
 ## Features
 
